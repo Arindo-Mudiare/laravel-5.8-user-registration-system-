@@ -154,3 +154,9 @@ User::truncate();
 a.using tinker --factory(App\User::class, 5)->create()
 
 ## Implemented Pagination for users page
+
+## Implemented Blade custome directives to hide UI elements by role
+
+--php artisan make:provider BladeExtrasServiceProvider
+
+## Deleting the user_role relationship when a user is deleted

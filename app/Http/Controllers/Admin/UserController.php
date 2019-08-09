@@ -70,8 +70,16 @@ class UserController extends Controller
             return redirect()->route('admin.users.index');
         }
 
-        User::destroy($id);
-        Alert::success('Success Title', 'User has been Deleted!!');
+        $user = User::find($id);
+
+        if ($user) {
+            $user->roles()->detach();
+            $user->delete();
+            Alert::success('Success Title', 'User has been Deleted!!');
+            return redirect()->route('admin.users.index');
+        }
+
+        Alert::success('warning', 'This User cannot be Deleted Ogbeni!!');
         return redirect()->route('admin.users.index');
     }
 }
