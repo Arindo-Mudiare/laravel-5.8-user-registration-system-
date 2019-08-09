@@ -174,6 +174,7 @@ return [
         // RegistrashunSystem\Providers\BroadcastServiceProvider::class,
         RegistrashunSystem\Providers\EventServiceProvider::class,
         RegistrashunSystem\Providers\RouteServiceProvider::class,
+        RegistrashunSystem\Providers\BladeExtrasServiceProvider::class,
 
     ],
 
