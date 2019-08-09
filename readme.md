@@ -100,7 +100,7 @@ The Laravel framework is open-source software licensed under the [MIT license](h
 
 ##populate users table with seeder
 
-5. php artisan make:seed UsersTableSeeder
+7. php artisan make:seed UsersTableSeeder
 
 User::truncate();
 
@@ -129,3 +129,15 @@ User::truncate();
         $admin->roles()->attach($adminRole);
         $author->roles()->attach($authorRole);
         $user->roles()->attach($userRole);
+
+## create user role helper methods on User model class
+
+##Create middleware for admin access
+
+8. php artisan make:middleware AccessAdmin
+   --modify AccessAdmin middleware
+   --open kernel.php and register middleware
+
+##Implemented protected routes by role 'Admin'
+
+##Create a resource controller and implement showing of users
