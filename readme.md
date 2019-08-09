@@ -145,3 +145,7 @@ User::truncate();
 ##Editing a Users Role
 
 ## Implemented Showing Flash messages with bootstrap and blade
+
+## Improved showing Flash messages with Rasheed-sweet-alerts package
+
+##Implemented functionality for deleting users
