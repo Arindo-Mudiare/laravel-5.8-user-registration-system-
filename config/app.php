@@ -165,6 +165,10 @@ return [
         /*
          * Package Service Providers...
          */
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        // 'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+
+
 
         /*
          * Application Service Providers...
