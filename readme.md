@@ -141,3 +141,5 @@ User::truncate();
 ##Implemented protected routes by role 'Admin'
 
 ##Create a resource controller and implement showing of users
+
+##Editing a Users Role

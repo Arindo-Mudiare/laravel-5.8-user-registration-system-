@@ -5,6 +5,8 @@ namespace RegistrashunSystem\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use RegistrashunSystem\Http\Controllers\Controller;
 use RegistrashunSystem\User;
+use Illuminate\Support\Facades\Auth;
+use RegistrashunSystem\Role;
 
 class UserController extends Controller
 {
@@ -26,7 +28,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        if (Auth::user()->id == $id) {
+            return redirect()->route('admin.users.index');
+        }
+
+        return view('admin.users.edit')->with(['user' => User::find($id), 'roles' => Role::all()]);
     }
 
     /**
@@ -38,7 +44,14 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (Auth::user()->id == $id) {
+            return redirect()->route('admin.users.index');
+        }
+
+        $user = User::find($id);
+        $user->roles()->sync($request->roles);
+
+        return redirect()->route('admin.users.index');
     }
 
     /**
