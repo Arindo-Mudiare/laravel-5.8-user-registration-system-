@@ -143,3 +143,5 @@ User::truncate();
 ##Create a resource controller and implement showing of users
 
 ##Editing a Users Role
+
+## Implemented Showing Flash messages with bootstrap and blade
