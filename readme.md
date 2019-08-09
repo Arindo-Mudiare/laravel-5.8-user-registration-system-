@@ -152,3 +152,5 @@ User::truncate();
 
 ##Implemented using Faker to seed database with dummy users
 a.using tinker --factory(App\User::class, 5)->create()
+
+## Implemented Pagination for users page
