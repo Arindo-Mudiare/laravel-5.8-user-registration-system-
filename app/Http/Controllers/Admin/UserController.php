@@ -7,6 +7,7 @@ use RegistrashunSystem\Http\Controllers\Controller;
 use RegistrashunSystem\User;
 use Illuminate\Support\Facades\Auth;
 use RegistrashunSystem\Role;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -29,7 +30,8 @@ class UserController extends Controller
     public function edit($id)
     {
         if (Auth::user()->id == $id) {
-            return redirect()->route('admin.users.index')->with('warning', 'You are not allowed to edit yourself Nwanne!!');
+            Alert::warning('Warning Title', 'You are not allowed to edit yourself Nwanne!!');
+            return redirect()->route('admin.users.index');
         }
 
         return view('admin.users.edit')->with(['user' => User::find($id), 'roles' => Role::all()]);
@@ -45,13 +47,14 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         if (Auth::user()->id == $id) {
+            Alert::warning('Kaii', 'You are not allowed to edit yourself Nwanne!!');
             return redirect()->route('admin.users.index');
         }
 
         $user = User::find($id);
         $user->roles()->sync($request->roles);
-
-        return redirect()->route('admin.users.index')->with('success', 'User role has been updated');
+        Alert::success('Success Title', 'User role has been updated')->position('top-left')->showConfirmButton('Oya', 'red');
+        return redirect()->route('admin.users.index');
     }
 
     /**

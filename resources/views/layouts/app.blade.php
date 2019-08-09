@@ -20,6 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+        @include('sweetalert::alert')
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -75,7 +76,6 @@
         </nav>
 
         <main class="py-4 container">
-            @include('partials.alert')
             @yield('content')
         </main>
     </div>
