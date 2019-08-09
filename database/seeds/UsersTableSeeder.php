@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\User;
-use App\Role;
+use RegistrashunSystem\User;
+use RegistrashunSystem\Role;
+use Illuminate\Support\Facades\DB;
 
 class UsersTableSeeder extends Seeder
 {
@@ -14,6 +15,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         User::truncate();
+        DB::table('role_user')->truncate();
 
         $adminRole = Role::where('name', 'admin')->first();
         $authorRole = Role::where('name', 'author')->first();
@@ -40,5 +42,7 @@ class UsersTableSeeder extends Seeder
         $admin->roles()->attach($adminRole);
         $author->roles()->attach($authorRole);
         $user->roles()->attach($userRole);
+
+        factory(RegistrashunSystem\User::class, 40)->create();
     }
 }

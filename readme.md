@@ -149,3 +149,6 @@ User::truncate();
 ## Improved showing Flash messages with Rasheed-sweet-alerts package
 
 ##Implemented functionality for deleting users
+
+##Implemented using Faker to seed database with dummy users
+a.using tinker --factory(App\User::class, 5)->create()
