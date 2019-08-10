@@ -167,3 +167,4 @@ a.using tinker --factory(App\User::class, 5)->create()
 
 --create custom controller under Admin namespace
 -- php artisan make:controller \\Admin\\ImpersonateController
+-- php artisan make:middleware Impersonate
