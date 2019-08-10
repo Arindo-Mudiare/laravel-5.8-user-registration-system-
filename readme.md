@@ -159,4 +159,11 @@ a.using tinker --factory(App\User::class, 5)->create()
 
 --php artisan make:provider BladeExtrasServiceProvider
 
-## Deleting the user_role relationship when a user is deleted
+## Implemented Deleting the user_role relationship when a user is deleted
+
+## Implemented adding a role by default when a user is created
+
+## Implemented Admin impersonating another user functionality
+
+--create custom controller under Admin namespace
+-- php artisan make:controller \\Admin\\ImpersonateController
